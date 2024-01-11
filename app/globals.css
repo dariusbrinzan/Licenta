@@ -23,6 +23,20 @@
     @apply text-center !text-base-regular text-light-3;
   }
 
+  .parallax {
+    /* The image used */
+    background-image: url("../public/sign-in.png");
+  
+    /* Set a specific height */
+    min-height: 500px; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
   /* Community Card */
   .community-card {
     @apply w-full rounded-lg bg-dark-3 px-4 py-5 sm:w-96;

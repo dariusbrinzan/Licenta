@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <div className={styles.signInContainer}>
       <div className={styles.backgroundImage}></div>
-      <SignIn />
+      <SignIn/>
     </div>
   );
 }
