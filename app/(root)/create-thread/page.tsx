@@ -16,7 +16,7 @@ async function Page() {
     return (
       <>
         <h1 className="head-text">
-            Create Thread
+            Get your answers here
         </h1>
         <PostThread userId={userInfo._id} />
       </>
