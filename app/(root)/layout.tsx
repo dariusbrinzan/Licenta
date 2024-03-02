@@ -35,7 +35,10 @@ export default function RootLayout({
           <main className='flex flex-row'>
             <LeftSidebar />
             <section className='main-container'>
-              <div className='w-full max-w-4xl'>{children}</div>
+              <video playsInline autoPlay muted loop className='absolute top-0 left-0 z-0 w-full h-full object-cover'> {/* Set z-index to 0 */}
+                <source src="/assets/pexels_videos_2062566 (1080p).mp4" type="video/mp4" />
+              </video>
+              <div className='relative z-10 w-full max-w-4xl'>{children}</div>
             </section>
             {/* @ts-ignore */}
             <RightSidebar />
