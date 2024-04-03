@@ -16,7 +16,7 @@ COPY . .
 # Build the Next.js app  
 RUN npm run build  
 
-COPY .next ./.next
+# COPY .next ./.next
 # Expose the port the app will run on  
 EXPOSE 3000  
 
