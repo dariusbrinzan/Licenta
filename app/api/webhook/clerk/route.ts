@@ -1,9 +1,4 @@
 /* eslint-disable camelcase */
-// Resource: https://clerk.com/docs/users/sync-data-to-your-backend
-// Above article shows why we need webhooks i.e., to sync data to our backend
-
-// Resource: https://docs.svix.com/receiving/verifying-payloads/why
-// It's a good practice to verify webhooks. Above article shows why we should do it
 import { Webhook, WebhookRequiredHeaders } from "svix";
 import { headers } from "next/headers";
 
@@ -18,8 +13,6 @@ import {
   updateCommunityInfo,
 } from "@/lib/actions/community.actions";
 
-// Resource: https://clerk.com/docs/integration/webhooks#supported-events
-// Above document lists the supported events
 type EventType =
   | "organization.created"
   | "organizationInvitation.created"
@@ -61,7 +54,6 @@ export const POST = async (request: Request) => {
 
 
   if (eventType === "organization.created") {
-    // Resource: https://clerk.com/docs/reference/backend-api/tag/Organizations#operation/CreateOrganization
     const { id, name, slug, logo_url, image_url, created_by } =
       evnt?.data ?? {};
 
@@ -89,7 +81,6 @@ export const POST = async (request: Request) => {
 
   if (eventType === "organizationInvitation.created") {
     try {
-      // Resource: https://clerk.com/docs/reference/backend-api/tag/Organization-Invitations#operation/CreateOrganizationInvitation
       console.log("Invitation created", evnt?.data);
 
       return NextResponse.json(
@@ -108,8 +99,6 @@ export const POST = async (request: Request) => {
 
   if (eventType === "organizationMembership.created") {
     try {
-      // Resource: https://clerk.com/docs/reference/backend-api/tag/Organization-Memberships#operation/CreateOrganizationMembership
-      // Show what evnt?.data sends from above resource
       const { organization, public_user_data } = evnt?.data;
       console.log("created", evnt?.data);
 
@@ -132,8 +121,6 @@ export const POST = async (request: Request) => {
 
   if (eventType === "organizationMembership.deleted") {
     try {
-      // Resource: https://clerk.com/docs/reference/backend-api/tag/Organization-Memberships#operation/DeleteOrganizationMembership
-      // Show what evnt?.data sends from above resource
       const { organization, public_user_data } = evnt?.data;
       console.log("removed", evnt?.data);
 
@@ -151,11 +138,8 @@ export const POST = async (request: Request) => {
     }
   }
 
-  // Listen organization updation event
   if (eventType === "organization.updated") {
     try {
-      // Resource: https://clerk.com/docs/reference/backend-api/tag/Organizations#operation/UpdateOrganization
-      // Show what evnt?.data sends from above resource
       const { id, logo_url, name, slug } = evnt?.data;
       console.log("updated", evnt?.data);
 
@@ -173,11 +157,8 @@ export const POST = async (request: Request) => {
     }
   }
 
-  // Listen organization deletion event
   if (eventType === "organization.deleted") {
     try {
-      // Resource: https://clerk.com/docs/reference/backend-api/tag/Organizations#operation/DeleteOrganization
-      // Show what evnt?.data sends from above resource
       const { id } = evnt?.data;
       console.log("deleted", evnt?.data);
 
