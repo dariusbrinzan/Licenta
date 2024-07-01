@@ -11,10 +11,25 @@
       "static/css/app/(root)/layout.css",
       "static/chunks/app/(root)/layout.js"
     ],
-    "/(root)/communities/[id]/page": [
+    "/(root)/communities/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(root)/communities/[id]/page.js"
+      "static/chunks/app/(root)/communities/page.js"
+    ],
+    "/(root)/search/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(root)/search/page.js"
+    ],
+    "/(root)/profile/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(root)/profile/[id]/page.js"
+    ],
+    "/(root)/thread/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(root)/thread/[id]/page.js"
     ]
   }
 }
